@@ -62,7 +62,7 @@ class Menu:
         texto_a_buscar = input("Ingrese parte del nombre o apellido a buscar del dueño del vehiculo")
         dueños_vehiculo = self.vehiculo.buscar_por_nombre_apellido(texto_a_buscar)
         if dueños_vehiculo:
-            # Mostramos los datos del empleado:
+            # Mostramos los datos del vehiculo:
             for v in dueños_vehiculo:
                 print(v.mostrar_datos())
         else:
