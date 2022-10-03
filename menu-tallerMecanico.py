@@ -41,13 +41,20 @@ class Menu:
             if tipo in [ 'a', 'A', 'c', 'C']:
                 break
             else:
-                print("Error: ingrese 'e' o 'p'")
+                print("Error: ingrese 'a' o 'c'")
         patente = input("Ingrese la patente del vehiculo: ")
         modelo = input("Ingrese el modelo del vehiculo: ")
         marca = input("Ingrese la marca del vehiculo: ")
         nombre = int(input("Ingrese el nombre del propietartio del vehiculo: "))
         apellido = input("Ingrese el apellido de propietario del vehiculo: ")
         dni = input("Ingrese el DNI del propietario del vehiculo: ")
+        
+        if tipo == 'a' or tipo == 'A':
+            cant_puertas = int(input("Ingrese la cantidad de puertas del auto: "))
+            
+        elif tipo == 'c' or tipo == 'C':
+            tipo_traccion = int(input("Ingrese '2' si la tracción de la camioneta es 2x2 o '4' si es 4x4"))
+              
 
         self.vehiculo.agregar_vehiculo(patente, modelo, marca, nombre, apellido, dni)
         
@@ -60,3 +67,13 @@ class Menu:
                 print(v.mostrar_datos())
         else:
             print("No se encontró ningún vehiculo relacionado a ese nombre y/o apellido")
+
+
+    def salir(self):
+        '''Muestra un mensaje y sale del sistema'''
+        print("Gracias por utilizar el sistema.")
+        sys.exit(0)
+
+
+if __name__ == "__main__":
+    Menu().ejecutar()
