@@ -3,7 +3,6 @@
 from auto import Auto
 from camioneta import Camioneta
 
-
 class Vehiculo:
     def __init__(self):
         self.lista_vehiculos = []
@@ -35,3 +34,8 @@ class Vehiculo:
             if un_vehiculo.coincide(texto_a_buscar):
                 vehiculos_coincidentes.append(un_vehiculo)
         return vehiculos_coincidentes
+
+
+    
+    
+    
