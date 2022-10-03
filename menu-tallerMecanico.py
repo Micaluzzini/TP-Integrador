@@ -64,13 +64,7 @@ class Menu:
 
         self.vehiculo.agregar_vehiculo(patente, modelo, marca, nombre, apellido, dni)
         
-    def _buscar_por_patente(self,patente):
-        '''Buscar vehiculo con la patente dada'''
-        for pat in self.vehiculos:
-            if str(pat) == str(patente):
-                return vehiculo
-        return None
-    
+   
     
     def buscar_por_nombre_apellido(self):
         texto_a_buscar = input("Ingrese parte del nombre o apellido a buscar del dueño del vehiculo")
@@ -91,14 +85,7 @@ class Menu:
         if texto_patente:
             self.vehiculo.modificar_patente_vehiculo(patente, texto_patente)
             
-      def eliminar_vehiculo(self,patente:
-        '''Busca la patente dada y elimina el vehiculo asociado a esa patente'''
-        patente = self._buscar_por_patente(patente)
-        if patente:
-            self.vehiculos.remove(patente)
-            return True
-        return False
-       
+     
 
 
 
