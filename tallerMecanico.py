@@ -35,3 +35,19 @@ class Vehiculo:
             if un_vehiculo.coincide(texto_a_buscar):
                 vehiculos_coincidentes.append(un_vehiculo)
         return vehiculos_coincidentes
+    
+     def eliminar_vehiculo(self,patente)
+        '''Busca la patente dada y elimina el vehiculo asociado a esa patente'''
+        patente = self._buscar_por_patente(patente)
+        if patente:
+            self.vehiculos.remove(patente)
+            return True
+        return False
+       
+     def _buscar_por_patente(self,patente):
+        '''Buscar vehiculo con la patente dada'''
+        for pat in self.vehiculos:
+            if str(pat) == str(patente):
+                return vehiculo
+        return None
+    
