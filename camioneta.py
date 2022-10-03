@@ -3,7 +3,7 @@
 from vehiculo import Vehiculo
 
 class Camioneta(Vehiculo):
-      def __init__(self, patente, modelo, marca, nombre, apellido, dni):
+      def __init__(self, patente, modelo, marca, nombre, apellido, dni, tipo_traccion):
         self.patente = patente
         self.modelo = modelo
         self.marca = marca
