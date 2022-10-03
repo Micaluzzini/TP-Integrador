@@ -21,7 +21,8 @@ class Menu:
 2- Buscar un vehiculo por su patente.
 3- Buscar un vehiculo por su dueño con nombre y/o apellido.
 4- Mostrar un listado de todos los autos ingresados al taller.
-5- Salir del programa.''')
+5- Modificar la patente de algún vehículo.
+6- Salir del programa.''')
         opcion = int(input("Elija la opción: "))
 
         if opcion == 1:
@@ -32,6 +33,8 @@ class Menu:
             self.buscar_por_nombre_apellido()
         elif opcion == 4:
             self.lista_completa()
+        elif opcion == 5:
+            self.modificar_patente_vehiculo()
         elif opcion == 6:
             self.salir()
             
@@ -67,6 +70,17 @@ class Menu:
                 print(v.mostrar_datos())
         else:
             print("No se encontró ningún vehiculo relacionado a ese nombre y/o apellido")
+            
+            
+    def modificar_patente_vehiculo(self):
+        '''Solicita la patente del vehiculo y  la nueva patente a modificar.  Busca la patente con el ID de patente ingresado, y actualiza con la nueva patente.'''
+        patente = int(input("Ingrese la patente del vehiculo a modificar: "))
+        texto_patente = input("Ingrese la nueva patente correctamente: ")
+        
+        if texto_patente:
+            self.vehiculo.modificar_patente_vehiculo(patente, texto_patente)
+       
+
 
 
     def salir(self):
