@@ -10,3 +10,4 @@ class Camioneta(Vehiculo):
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
+        self.tipo_traccion = tipo_traccion
