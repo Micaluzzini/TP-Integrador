@@ -10,6 +10,7 @@ class Auto(Vehiculo):
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
+        self.cant_puertas = cant_puertas
         
     
     
