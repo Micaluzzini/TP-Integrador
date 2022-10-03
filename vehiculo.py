@@ -27,6 +27,15 @@ class Vehiculo:
             return True
         else:
             return False
+        
+    def modificar_patente_vehiculo(self, patente):
+        '''Busca la patente ingresada y la modifica por el nuevo texto ingresado'''
+        nueva_patente = self._buscar_por_patente(patente)
+
+        if nueva_patente:
+            nueva_patente.patente = patente
+            return True
+        return False
 
 
         
