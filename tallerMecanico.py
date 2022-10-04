@@ -2,9 +2,11 @@
 
 from auto import Auto
 from camioneta import Camioneta
+from menu-tallerMecanico import Menu
 
 
-class Vehiculo:
+
+class TallerMecanico:
     def __init__(self):
         self.lista_vehiculos = []
         
@@ -36,7 +38,7 @@ class Vehiculo:
                 vehiculos_coincidentes.append(un_vehiculo)
         return vehiculos_coincidentes
     
-     def eliminar_vehiculo(self,patente)
+    def eliminar_vehiculo(self,patente):
         '''Busca la patente dada y elimina el vehiculo asociado a esa patente'''
         patente = self._buscar_por_patente(patente)
         if patente:
@@ -44,10 +46,10 @@ class Vehiculo:
             return True
         return False
        
-     def _buscar_por_patente(self,patente):
+    def _buscar_por_patente(self,patente):
         '''Buscar vehiculo con la patente dada'''
         for pat in self.vehiculos:
             if str(pat) == str(patente):
-                return vehiculo
+                return patente
         return None
     
