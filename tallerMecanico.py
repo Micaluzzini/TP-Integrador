@@ -2,7 +2,7 @@
 
 from auto import Auto
 from camioneta import Camioneta
-from menu-tallerMecanico import Menu
+
 
 
 
@@ -40,16 +40,10 @@ class TallerMecanico:
     
     def eliminar_vehiculo(self,patente):
         '''Busca la patente dada y elimina el vehiculo asociado a esa patente'''
-        patente = self._buscar_por_patente(patente)
+        patente = self.buscar_por_patente(patente)
         if patente:
             self.vehiculos.remove(patente)
             return True
         return False
        
-    def _buscar_por_patente(self,patente):
-        '''Buscar vehiculo con la patente dada'''
-        for pat in self.vehiculos:
-            if str(pat) == str(patente):
-                return patente
-        return None
-    
+

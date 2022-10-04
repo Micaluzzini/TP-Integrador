@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-from vehiculo import Vehiculo
 
-class Camioneta(Vehiculo):
+
+class Camioneta:
       def __init__(self, patente, modelo, marca, nombre, apellido, dni, tipo_traccion):
         self.patente = patente
         self.modelo = modelo

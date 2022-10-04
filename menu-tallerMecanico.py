@@ -2,8 +2,6 @@
 
 from tallerMecanico import TallerMecanico
 from vehiculo import Vehiculo
-from auto import Auto
-from camioneta import Camioneta
 import sys
 
 
@@ -51,7 +49,7 @@ class Menu:
         patente = input("Ingrese la patente del vehiculo: ")
         modelo = input("Ingrese el modelo del vehiculo: ")
         marca = input("Ingrese la marca del vehiculo: ")
-        nombre = int(input("Ingrese el nombre del propietartio del vehiculo: "))
+        nombre = input("Ingrese el nombre del propietartio del vehiculo: ")
         apellido = input("Ingrese el apellido de propietario del vehiculo: ")
         dni = input("Ingrese el DNI del propietario del vehiculo: ")
         
@@ -79,7 +77,7 @@ class Menu:
             
     def modificar_patente_vehiculo(self):
         '''Solicita la patente del vehiculo y  la nueva patente a modificar.  Busca la patente con el ID de patente ingresado, y actualiza con la nueva patente.'''
-        patente = int(input("Ingrese la patente del vehiculo a modificar: "))
+        patente = input("Ingrese la patente del vehiculo a modificar: ")
         texto_patente = input("Ingrese la nueva patente correctamente: ")
         
         if texto_patente:

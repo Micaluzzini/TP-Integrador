@@ -3,6 +3,7 @@
 from auto import Auto
 from camioneta import Camioneta
 
+
 class Vehiculo:
     def __init__(self, patente, modelo, marca, nombre, apellido, dni):
         self.patente = patente
@@ -28,7 +29,7 @@ class Vehiculo:
         
     def modificar_patente_vehiculo(self, patente):
         '''Busca la patente ingresada y la modifica por el nuevo texto ingresado'''
-        nueva_patente = self._buscar_por_patente(patente)
+        nueva_patente = self.buscar_por_patente(patente)
 
         if nueva_patente:
             nueva_patente.patente = patente
