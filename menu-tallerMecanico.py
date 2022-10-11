@@ -24,7 +24,7 @@ class Menu:
         opcion = int(input("Elija la opción: "))
 
         if opcion == 1:
-            self.agregar_()
+            self.agregar_vehiculo()
         elif opcion == 2:
             self.buscar_por_patente()
         elif opcion == 3:
@@ -59,13 +59,13 @@ class Menu:
             tipo_traccion = int(input("Ingrese '2' si la tracción de la camioneta es 2x2 o '4' si es 4x4"))
               
 
-        self.vehiculo.agregar_vehiculo(patente, modelo, marca, nombre, apellido, dni)
+        self.tallerMecanico.agregar_vehiculo(patente, modelo, marca, nombre, apellido, dni)
         
    
     
     def buscar_por_nombre_apellido(self):
         texto_a_buscar = input("Ingrese parte del nombre o apellido a buscar del dueño del vehiculo")
-        dueños_vehiculo = self.vehiculo.buscar_por_nombre_apellido(texto_a_buscar)
+        dueños_vehiculo = self.tallerMecanico.buscar_por_nombre_apellido(texto_a_buscar)
         if dueños_vehiculo:
             # Mostramos los datos del vehiculo:
             for v in dueños_vehiculo:
@@ -80,7 +80,7 @@ class Menu:
         texto_patente = input("Ingrese la nueva patente correctamente: ")
         
         if texto_patente:
-            self.vehiculo.modificar_patente_vehiculo(patente, texto_patente)
+            self.tallerMecanico.modificar_patente_vehiculo(patente, texto_patente)
             
      
 
