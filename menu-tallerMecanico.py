@@ -6,7 +6,7 @@ import sys
 
 class Menu:
     def __init__(self):
-        self.tallerMecanico = tallerMecanico()
+        self.tallerMecanico = TallerMecanico()
 
     def ejecutar(self):
         while True:
