@@ -30,7 +30,7 @@ class TallerMecanico:
         return None
 
     def buscar_por_nombre_apellido(self, texto_a_buscar):
-        '''Un método que reciba un texto, y retorne una lista de empleados cuyo
+        '''Un método que reciba un texto, y retorna una lista de personas cuyo
         nombre y/o apellido coincida (total o parcialmente) con ese texto.'''
         vehiculos_coincidentes = []
         for un_vehiculo in self.lista_vehiculos:
