@@ -61,6 +61,15 @@ class Menu:
 
         self.tallerMecanico.agregar_vehiculo(patente, modelo, marca, nombre, apellido, dni)
         
+    def buscar_por_patente(self):
+        patente_a_buscar = input("Ingrese la patente a buscar")
+        patente = self.tallerMecanico.buscar_por_patente(patente_a_buscar)
+        if patente:
+            # Mostramos los datos del vehiculo con esa patente:
+            print(patente.mostrar_datos())
+        else:
+            print("No se encontró un vehiculo con esa patente")    
+        
    
     
     def buscar_por_nombre_apellido(self):
