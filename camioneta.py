@@ -11,3 +11,14 @@ class Camioneta:
         self.apellido = apellido
         self.dni = dni
         self.tipo_traccion = tipo_traccion
+        
+        
+      def mostrar_datos(self):
+        texto = f"Patente y modelo: {self.patente} {self.modelo}\n"
+        texto += f"Marca: {self.marca}\n"
+        texto = f"Nombre y apellido: {self.nombre} {self.apellido}\n"
+        texto += f"DNI: {self.dni}\n"
+        texto += f"tipo_traccion: {self.tipo_traccion}\n"
+        
+        return texto  
+    
