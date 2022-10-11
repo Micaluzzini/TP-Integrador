@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 
-
 class Camioneta:
       def __init__(self, patente, modelo, marca, nombre, apellido, dni, tipo_traccion):
         self.patente = patente
@@ -21,4 +20,10 @@ class Camioneta:
         texto += f"tipo_traccion: {self.tipo_traccion}\n"
         
         return texto  
+      
+      def coincide(self, patente_a_buscar):
+        if patente_a_buscar in self.patente:
+            return True
+        else:
+            return False
     

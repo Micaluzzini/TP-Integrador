@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 
 from tallerMecanico import TallerMecanico
-from vehiculo import Vehiculo
 import sys
 
 
 class Menu:
     def __init__(self):
-        self.vehiculo = Vehiculo()
+        self.tallerMecanico = tallerMecanico()
 
     def ejecutar(self):
         while True:

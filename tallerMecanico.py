@@ -4,8 +4,6 @@ from auto import Auto
 from camioneta import Camioneta
 
 
-
-
 class TallerMecanico:
     def __init__(self):
         self.lista_vehiculos = []
@@ -46,19 +44,7 @@ class TallerMecanico:
             return True
         return False
        
-    def mostrar_datos(self):
-        texto = f"Patente y modelo: {self.patente} {self.modelo}\n"
-        texto += f"Marca: {self.marca}\n"
-        texto = f"Nombre y apellido: {self.nombre} {self.apellido}\n"
-        texto += f"DNI: {self.dni}\n"
-        
-        return texto
-
-    def coincide(self, patente_a_buscar):
-        if patente_a_buscar in self.patente:
-            return True
-        else:
-            return False
+    
         
     def modificar_patente_vehiculo(self, patente):
         '''Busca la patente ingresada y la modifica por el nuevo texto ingresado'''

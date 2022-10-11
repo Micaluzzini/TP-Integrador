@@ -19,6 +19,12 @@ class Auto:
         texto += f"Cantidad de puertas: {self.cant_puertas}\n"
         
         return texto
+      
+      def coincide(self, patente_a_buscar):
+        if patente_a_buscar in self.patente:
+            return True
+        else:
+            return False
         
     
     
