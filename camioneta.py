@@ -21,7 +21,7 @@ class Camioneta:
         
         return texto  
       
-      def coincide(self, patente_a_buscar):
+      def buscar_por_patente(self, patente_a_buscar):
         if patente_a_buscar in self.patente:
             return True
         else:

@@ -2,13 +2,14 @@
 
 from tallerMecanico import TallerMecanico
 import sys
-
+from camioneta import Camioneta
+from auto import Auto
 
 class Menu:
     def __init__(self):
         self.tallerMecanico = TallerMecanico()
 
-    def ejecutar(self):
+    def ejecutar_menu(self):
         while True:
             self.elegir_opcion()
 
@@ -24,7 +25,7 @@ class Menu:
         opcion = int(input("Elija la opción: "))
 
         if opcion == 1:
-            self.agregar_vehiculo()
+            self.agregar()
         elif opcion == 2:
             self.buscar_por_patente()
         elif opcion == 3:
@@ -38,7 +39,7 @@ class Menu:
         elif opcion == 7:
             self.salir()
             
-    def agregar_vehiculo(self):
+    def agregar(self):
         while True:
             tipo = input("Ingrese tipo de vehiculo (Auto o Camioneta) [A/C]")
             if tipo in [ 'a', 'A', 'c', 'C']:
@@ -102,4 +103,4 @@ class Menu:
 
 
 if __name__ == "__main__":
-    Menu().ejecutar()
+    Menu().ejecutar_menu()

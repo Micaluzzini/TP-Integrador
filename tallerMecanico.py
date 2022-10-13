@@ -2,18 +2,20 @@
 
 from auto import Auto
 from camioneta import Camioneta
+import datetime
+
 
 
 class TallerMecanico:
-    def __init__(self):
-        self.lista_vehiculos = []
+    def __init__(self, lista_vehiculos = []):
+        self.taller = lista_vehiculos
         
         
     def agregar_vehiculo(self, tipo, patente, modelo, marca, nombre, apellido, dni):
         if (tipo) == 'A' or 'a':
-            v = Auto(patente, modelo, marca, nombre, apellido, dni)
+            v = Auto(tipo, patente, modelo, marca, nombre, apellido, dni)
         elif (tipo) == 'C' or 'C':
-            v = Camioneta(patente, modelo, marca, nombre, apellido, dni)
+            v = Camioneta(tipo, patente, modelo, marca, nombre, apellido, dni)
         else:
             return None
 
