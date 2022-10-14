@@ -10,29 +10,37 @@ class RepositorioTallerMecanico:
         self.archivo = archivo
 
     def obtener_todo(self):
+        '''Lee todo el contenido de self.archivo y lo convierte en una lista de objetos
+        taller, que la retorna'''
         taller = []
-        with open(self.archivo, 'r') as fp:
-            for tallerMecanico_como_texto in fp:
-                t = self.texto_a_taller(taller_como_texto)
+        with open(self.archivo, 'r') as tm:
+            '''Se abre el archivo en modo lectura, read (r).
+            Una vez que el archivo este abierto, se referenciara como tm'''
+            for tallerMecanico_como_texto in tm:
+                t = self.texto_a_taller(tallerMecanico_como_texto)
                 taller.append(t)
         return taller
 
     def guardar_todo(self, taller):
-        with open(self.archivo, 'w') as fp:
+        with open(self.archivo, 'w') as tm:
             for tall in taller:
                 taller_como_texto = self.taller_a_texto(tall)
-                fp.write(taller_como_texto)
+                tm.write(taller_como_texto)
             print("Guardado en "+ self.archivo)
 
-    def taller_a_texto(self,taller):
+    def taller_a_texto(self, taller):
         fc = taller.fecha_creacion
         fecha_en_texto = str(fc.year) + '-' + str(fc.month) + '-' + str(fc.day)
-        return taller.patente + ',' + taller.modelo + ',' + fecha_en_texto + "\n"
+        return taller.tipo + ',' + taller.patente + ',' + taller.modelo + ',' + taller.marca + ',' + taller.nombre + ',' + taller.apellido + ',' + taller.dni + ',' + taller.cant_puertas_traccion + ',' + fecha_en_texto + "\n"
 
     def texto_a_taller(self, texto):
-        texto = texto[:-1] 
+        texto = texto[:-1]  # Sacamos el \n final
         tallerMecanico_como_lista = texto.split(',')
-        t = TallerMecanico(tallerMecanico_como_lista[0], tallerMecanico_como_lista[1])
-        fecha = tallerMecanico_como_lista[2].split('-')
-        t.fecha_creacion = datetime.date(int(fecha[0]),int(fecha[1]),int(fecha[2])) 
+        if tallerMecanico_como_lista[0] == 'A':
+            t = Auto(tallerMecanico_como_lista[0], tallerMecanico_como_lista[1],tallerMecanico_como_lista[2], tallerMecanico_como_lista[3],tallerMecanico_como_lista[4], tallerMecanico_como_lista[5],tallerMecanico_como_lista[6], tallerMecanico_como_lista[7])
+        elif tallerMecanico_como_lista[0] == 'C':
+            t = Camioneta(tallerMecanico_como_lista[0], tallerMecanico_como_lista[1],tallerMecanico_como_lista[2], tallerMecanico_como_lista[3],tallerMecanico_como_lista[4], tallerMecanico_como_lista[5],tallerMecanico_como_lista[6], tallerMecanico_como_lista[7])
+        fecha = tallerMecanico_como_lista[8].split('-')
+        t.fecha_creacion = datetime.date(int(fecha[0]),int(fecha[1]),int(fecha[2]))
+        # print(vars(t))
         return t
