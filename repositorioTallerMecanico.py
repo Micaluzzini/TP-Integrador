@@ -10,22 +10,18 @@ class RepositorioTallerMecanico:
         self.archivo = archivo
 
     def obtener_todo(self):
-        '''Lee todo el contenido de self.archivo y lo convierte en una lista de objetos
-        taller, que la retorna'''
         taller = []
-        with open(self.archivo, 'r') as tm:
-            '''Se abre el archivo en modo lectura, read (r).
-            Una vez que el archivo este abierto, se referenciara como tm'''
-            for tallerMecanico_como_texto in tm:
+        with open(self.archivo, 'r') as fp:
+            for tallerMecanico_como_texto in fp:
                 t = self.texto_a_taller(tallerMecanico_como_texto)
                 taller.append(t)
         return taller
 
     def guardar_todo(self, taller):
-        with open(self.archivo, 'w') as tm:
+        with open(self.archivo, 'w') as fp:
             for tall in taller:
                 taller_como_texto = self.taller_a_texto(tall)
-                tm.write(taller_como_texto)
+                fp.write(taller_como_texto)
             print("Guardado en "+ self.archivo)
 
     def taller_a_texto(self, taller):
