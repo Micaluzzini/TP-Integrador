@@ -1,0 +1,2 @@
+auto,asd345,peugeot,2021,Mercedes,Sosa,11456827,4,2022-10-18
+camioneta,aa345qq,audi,2016,Rocky,Balboa,112958374,2,2022-10-18
