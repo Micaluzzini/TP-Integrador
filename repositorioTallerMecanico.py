@@ -11,17 +11,17 @@ class RepositorioTallerMecanico:
 
     def obtener_todo(self):
         taller = []
-        with open(self.archivo, 'r') as fp:
-            for tallerMecanico_como_texto in fp:
+        with open(self.archivo, 'r') as tm:
+            for tallerMecanico_como_texto in tm:
                 t = self.texto_a_taller(tallerMecanico_como_texto)
                 taller.append(t)
         return taller
 
     def guardar_todo(self, taller):
-        with open(self.archivo, 'w') as fp:
+        with open(self.archivo, 'w') as tm:
             for tall in taller:
                 taller_como_texto = self.taller_a_texto(tall)
-                fp.write(taller_como_texto)
+                tm.write(taller_como_texto)
             print("Guardado en "+ self.archivo)
 
     def taller_a_texto(self, taller):

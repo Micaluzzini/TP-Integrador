@@ -26,6 +26,7 @@ class TallerMecanico:
     def buscar_por_patente(self, patente_para_buscar):
         '''Un método que reciba una patente y retorne el vehiculo que tiene
         esa patente, o None si no hay ninguno.'''
+        
         for un_vehiculo in self.lista_vehiculos:
             if un_vehiculo.patente == patente_para_buscar:
                 return un_vehiculo
@@ -75,11 +76,11 @@ class TallerMecanico:
 # CONTAR POR TIPO
     def contar_veh(self, tipo):
         lista_vehiculos_tipo = []
-        if tipo == 'A':
-            lista_vehiculos_tipo = [v for v in self.lista_vehiculos if v.tipo == 'A']
+        if tipo == 'A' or tipo == 'a':
+            lista_vehiculos_tipo = [v for v in self.lista_vehiculos if v.tipo == 'A' or v.tipo == 'a']
             
-        elif tipo == 'C':
-            lista_vehiculos_tipo = [v for v in self.lista_vehiculos if v.tipo == 'C']
+        elif tipo == 'C' or tipo == 'c':
+            lista_vehiculos_tipo = [v for v in self.lista_vehiculos if v.tipo == 'C' or v.tipo == 'c']
 
         return len(lista_vehiculos_tipo)
 

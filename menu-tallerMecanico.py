@@ -4,12 +4,16 @@ from tallerMecanico import TallerMecanico
 import sys
 from camioneta import Camioneta
 from auto import Auto
+from repositorioTallerMecanico import RepositorioTallerMecanico
 
 
 #Es el menu que se ejecuta en consola sin necesidad de gui con tkinter
 class Menu:
     def __init__(self):
         self.tallerMecanico = TallerMecanico()
+        self.repositorio = RepositorioTallerMecanico()
+        taller = self.repositorio.obtener_todo()
+        self.tallerMecanico = TallerMecanico(taller)
     def ejecutar_menu(self):
         while True:
             self.elegir_opcion()
@@ -74,6 +78,7 @@ class Menu:
         patente_a_buscar = input("\nIngrese la patente a buscar: ")
         patente = self.tallerMecanico.buscar_por_patente(patente_a_buscar)
         if patente:
+            
             # Mostramos los datos del vehiculo con esa patente:
             print("\n")
             print(patente.mostrar_datos())
@@ -111,7 +116,6 @@ class Menu:
     def eliminar_vehiculo(self):
         '''Solicita la patente del vehiculo y luego lo elimina'''
         patente = input("\nIngrese la patente del vehiculo a eliminar: ")
-
         if patente:
             self.tallerMecanico.eliminar_vehiculo(patente)
 
@@ -120,7 +124,8 @@ class Menu:
         '''Solicita tipo de vehiculo a contar'''
         while True:
             tipo = input("\nIngrese tipo de vehiculo (Auto o Camioneta) [A/C]: ")
-            if tipo in [ 'a', 'A', 'c', 'C']:
+            if tipo == 'A' or tipo == 'a' or tipo == 'C' or tipo == 'c':
+                #Convierte la opcion ingresada en Mayuscula
                 tipo = tipo.upper()
                 cant = self.tallerMecanico.contar_veh(tipo)
                 if cant == 0:

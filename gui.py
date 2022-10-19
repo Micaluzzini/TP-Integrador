@@ -29,6 +29,8 @@ class Gui():
                            command = self.modificar_vehiculo).grid(row=0, column=1)
         botonEliminarVehiculo=tkinter.Button(self.ventana_principal, text = "Eliminar Vehiculo", bg="#ff0000",
                            command = self.eliminar_vehiculo).grid(row=0, column=2)
+        botonContarVehiculosIngresados = tkinter.Button(self.ventana_principal,text="Contar vehiculos ingresados",
+                           command = self.contar_vehiculo).grid(row=0, column=3)
 
         tkinter.Label(self.ventana_principal,text="Buscar").grid(row=1,column=0)
 
@@ -113,6 +115,26 @@ class Gui():
         botonCancelar = tkinter.Button(self.modalAgregar, text = "Cancelar",
                 command = self.modalAgregar.destroy)
         botonCancelar.grid(row=8,column=2)
+
+    def contar_vehiculo(self):
+        self.modalAgregar = tkinter.Toplevel(self.ventana_principal)
+        self.modalAgregar.grab_set()
+        tkinter.Label(self.modalAgregar, text = "Ingrese tipo de vehiculo (Auto o Camioneta) [A/C]: ").grid()
+        self.tipo = tkinter.Entry(self.modalAgregar)
+        self.tipo.grid(row=0,column=1,columnspan=2)
+        self.tipo.focus()
+        botonOK = tkinter.Button(self.modalAgregar, text="Contar",
+                command=self.contar_ok)
+        self.modalAgregar.bind("<Return>", self.contar_ok)
+        botonOK.grid(row=8)
+        botonCancelar = tkinter.Button(self.modalAgregar, text = "Cancelar",
+                command = self.modalAgregar.destroy)
+        botonCancelar.grid(row=8,column=2)
+
+    def contar_ok(self):
+        resultado = self.tallerMecanico.contar_veh(self.tipo.get())
+        print (resultado)
+        
 
     def agregar_ok(self, event=None):
         vehiculo = self.tallerMecanico.agregar_vehiculo(self.tipo.get(), self.patente.get(),self.marca.get(), self.modelo.get(),self.nombre.get(), self.apellido.get(),self.dni.get(), self.cant_puertas_traccion.get())
