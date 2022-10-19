@@ -31,6 +31,8 @@ class Gui():
                            command = self.eliminar_vehiculo).grid(row=0, column=2)
         botonContarVehiculosIngresados = tkinter.Button(self.ventana_principal,text="Contar vehiculos ingresados",
                            command = self.contar_vehiculo).grid(row=0, column=3)
+        '''botonBuscarPorPatente = tkinter.Button(self.ventana_principal,text="Buscar vehiculo por patente",
+                            command = self.buscar_patente).grid(row=0, column=4)'''
 
         tkinter.Label(self.ventana_principal,text="Buscar").grid(row=1,column=0)
 
@@ -130,9 +132,13 @@ class Gui():
         botonCancelar = tkinter.Button(self.modalAgregar, text = "Cancelar",
                 command = self.modalAgregar.destroy)
         botonCancelar.grid(row=8,column=2)
+        botonResultado = tkinter.Button(self.modalAgregar, text = self.contar_ok,
+                        command=self.contar_ok)
 
     def contar_ok(self):
         resultado = self.tallerMecanico.contar_veh(self.tipo.get())
+        tkinter.Label(self.modalAgregar, text = resultado).grid()
+        
         print (resultado)
         
 
@@ -240,6 +246,16 @@ class Gui():
         else:
             messagebox.showwarning("Sin resultados",
                                 "Ningun vehiculo coincide con la búsqueda")
+
+    '''def buscar_patente(self):
+        filtro = self.cajaBuscar.get()
+        vehiculos = self.tallerMecanico.buscar_por_patente(filtro)
+        if vehiculos:
+            self.poblar_tabla(vehiculos)
+        else:
+            messagebox.showwarning("Sin resultados",
+                                "Ninguna patente coincide con la búsqueda")'''
+
     
     def salir(self):
         print(self.tallerMecanico.lista_vehiculos)
