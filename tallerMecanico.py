@@ -84,15 +84,15 @@ class TallerMecanico:
         return len(lista_vehiculos_tipo)
 
 # Modificar todo el vehiculo para el GUI       
-    def modificar_todo_gui(self, patente, tipo, modelo, marca, nombre, apellido, dni, cant_puertas_traccion):
+    def modificar_todo_gui(self, patente, tipo, marca, modelo, nombre, apellido, dni, cant_puertas_traccion):
         '''Busca la patente ingresada y la modifica por el nuevo texto ingresado'''
         nueva_patente = self.buscar_por_patente(patente)
 
         if nueva_patente:
             nueva_patente.tipo = tipo
-            # nueva_patente.patente = patente_nueva
-            nueva_patente.modelo = modelo
+            #nueva_patente.patente = patente_nueva
             nueva_patente.marca = marca
+            nueva_patente.modelo = modelo
             nueva_patente.nombre = nombre
             nueva_patente.apellido = apellido
             nueva_patente.dni = dni

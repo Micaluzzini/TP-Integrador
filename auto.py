@@ -2,11 +2,11 @@
 import datetime
 
 class Auto:
-      def __init__(self, tipo, patente, modelo, marca, nombre, apellido, dni, cant_puertas_traccion):
+      def __init__(self, tipo, patente, marca, modelo, nombre, apellido, dni, cant_puertas_traccion):
         self.tipo = tipo
         self.patente = patente
-        self.modelo = modelo
         self.marca = marca
+        self.modelo = modelo
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
