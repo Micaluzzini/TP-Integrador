@@ -5,15 +5,10 @@ from camioneta import Camioneta
 import datetime
 
 class TallerMecanico:
-    '''Representa una colección de vehículos que se pueden editar, eliminar, buscar'''
-    
     def __init__(self, lista_vehiculos = []):
-        '''Inicializa el Taller Mecanico con una lista de vehículos'''
         self.lista_vehiculos = lista_vehiculos
         
-# AGREGAR VEHICULO    
-        '''Agrega un vehiculo que puede ser Auto o Camioneta. Se agrega a la coleccion
-    de lista de vehiculos'''
+# AGREGAR VEHICULO        
     def agregar_vehiculo(self, tipo, patente, modelo, marca, nombre, apellido, dni, cant_puertas_tipo_traccion):
         if (tipo) == 'A' or 'a':
             v = Auto(tipo, patente, modelo, marca, nombre, apellido, dni, cant_puertas_tipo_traccion)
@@ -24,7 +19,7 @@ class TallerMecanico:
 
         self.lista_vehiculos.append(v)
 
-        '''Se le agrega este return para que el gui lo lea'''
+        # Se le agrega este return para que el gui lo lea
         return v
 
 # BUSCAR POR PATENTE
@@ -47,7 +42,7 @@ class TallerMecanico:
                 vehiculos_coincidentes.append(un_vehiculo)
         return vehiculos_coincidentes
 
-# ELIMINAR VEHICULO POR PATENTE  
+# ELIMINAR VEHICULO   
     def eliminar_vehiculo(self, patente):
         '''Busca la patente dada y elimina el vehiculo asociado a esa patente'''
         vehiculo = self.buscar_por_patente(patente)
@@ -77,7 +72,7 @@ class TallerMecanico:
         for un_vehiculo in self.lista_vehiculos:
             print(un_vehiculo.mostrar_datos())
 
-# CONTAR POR TIPO: SERA UN REPORTE
+# CONTAR POR TIPO
     def contar_veh(self, tipo):
         lista_vehiculos_tipo = []
         if tipo == 'A':

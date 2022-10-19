@@ -30,6 +30,3 @@ class Auto:
             return True
         else:
             return False
-        
-    
-    
