@@ -8,6 +8,7 @@ from repositorioTallerMecanico import RepositorioTallerMecanico
 
 
 #Es el menu que se ejecuta en consola sin necesidad de gui con tkinter
+#ACLARACION: Todas las funciones en el menú funcionan por consola. Algunas no las llegué a agregar en Gui.
 class Menu:
     def __init__(self):
         self.tallerMecanico = TallerMecanico()
@@ -24,7 +25,7 @@ class Menu:
 2- Buscar un vehiculo por su patente.
 3- Buscar un vehiculo por su dueño con nombre y/o apellido.
 4- Mostrar un listado de todos los autos ingresados al taller.
-5- Modificar la patente de algún vehículo.
+5- Modificar la patente de algún vehículo. 
 6- Eliminar algún vehículo.
 7- Mostrar cantidad de autos o camionetas.
 8- Salir del programa.''')

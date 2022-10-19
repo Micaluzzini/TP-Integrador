@@ -28,19 +28,25 @@ class Gui():
         botonModificarVehiculoPatente=tkinter.Button(self.ventana_principal,text="Modificar Vehiculo", cursor="pencil",
                            command = self.modificar_vehiculo).grid(row=0, column=1)
         botonEliminarVehiculo=tkinter.Button(self.ventana_principal, text = "Eliminar Vehiculo", bg="#ff0000",
-                           command = self.eliminar_vehiculo).grid(row=0, column=2)
+                           command = self.eliminar_vehiculo).grid(row=1, column=0)
         botonContarVehiculosIngresados = tkinter.Button(self.ventana_principal,text="Contar vehiculos ingresados",
-                           command = self.contar_vehiculo).grid(row=0, column=3)
-        '''botonBuscarPorPatente = tkinter.Button(self.ventana_principal,text="Buscar vehiculo por patente",
-                            command = self.buscar_patente).grid(row=0, column=4)'''
+                           command = self.contar_vehiculo).grid(row=1, column=1)
+    
 
-        tkinter.Label(self.ventana_principal,text="Buscar").grid(row=1,column=0)
+        tkinter.Label(self.ventana_principal,text="Buscar vehiculo por nombre y apellido").grid(row=2,column=0)
+        tkinter.Label(self.ventana_principal,text="Buscar vehiculo por patente").grid(row=3,column=0)
 
-        # Aca se esribe el texto
+        # Aca se esribe el texto para buscar por nombre y apellido
         self.cajaBuscar = tkinter.Entry(self.ventana_principal)
-        self.cajaBuscar.grid(row=1, column=1)
-        botonBuscar = tkinter.Button(self.ventana_principal, text = "Buscar por nombre o apellido",
-                           command = self.buscar_vehiculo).grid(row=1, column=2)
+        self.cajaBuscar.grid(row=2, column=1)
+        botonBuscar = tkinter.Button(self.ventana_principal, text = "Buscar",
+                           command = self.buscar_vehiculo).grid(row=2, column=3)
+
+        # Aca se esribe el texto para buscar por patente
+        self.cajaBuscarPatente = tkinter.Entry(self.ventana_principal)
+        self.cajaBuscarPatente.grid(row=3, column=1)
+        botonBuscar = tkinter.Button(self.ventana_principal, text = "Buscar",
+                           command = self.buscar_patente).grid(row=3, column=3)
 
         # Hay un TreeView que va mostrar las siguientes columnas               
         self.treeview = ttk.Treeview(self.ventana_principal)
@@ -247,14 +253,14 @@ class Gui():
             messagebox.showwarning("Sin resultados",
                                 "Ningun vehiculo coincide con la búsqueda")
 
-    '''def buscar_patente(self):
-        filtro = self.cajaBuscar.get()
+    def buscar_patente(self):
+        filtro = self.cajaBuscarPatente.get()
         vehiculos = self.tallerMecanico.buscar_por_patente(filtro)
         if vehiculos:
             self.poblar_tabla(vehiculos)
         else:
             messagebox.showwarning("Sin resultados",
-                                "Ninguna patente coincide con la búsqueda")'''
+                                "Ninguna patente coincide con la búsqueda")
 
     
     def salir(self):
