@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-
 import datetime
-
 
 class Auto:
       def __init__(self, tipo, patente, modelo, marca, nombre, apellido, dni, cant_puertas_traccion):
@@ -17,9 +15,9 @@ class Auto:
         
       def mostrar_datos(self):
         texto = f"Tipo: {self.tipo}\n"
-        texto = f"Patente y modelo: {self.patente} {self.modelo}\n"
+        texto += f"Patente y modelo: {self.patente} {self.modelo}\n"
         texto += f"Marca: {self.marca}\n"
-        texto = f"Nombre y apellido: {self.nombre} {self.apellido}\n"
+        texto += f"Nombre y apellido: {self.nombre} {self.apellido}\n"
         texto += f"DNI: {self.dni}\n"
         texto += f"Cantidad de puertas: {self.cant_puertas_traccion}\n"
         

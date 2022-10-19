@@ -5,6 +5,8 @@ import sys
 from camioneta import Camioneta
 from auto import Auto
 
+
+#Es el menu que se ejecuta en consola sin necesidad de gui con tkinter
 class Menu:
     def __init__(self):
         self.tallerMecanico = TallerMecanico()

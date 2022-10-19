@@ -31,4 +31,10 @@ class Camioneta:
             return True
         else:
             return False
+          
+      def coincide(self, texto_a_buscar):
+        if texto_a_buscar.upper() in self.nombre.upper() or texto_a_buscar.upper() in self.apellido.upper():
+            return True
+        else:
+            return False
     

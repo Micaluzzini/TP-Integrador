@@ -4,6 +4,8 @@ from repositorioTallerMecanico import RepositorioTallerMecanico
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
+import tkinter as tk
+
 
 class Gui():
     '''Crear la pantalla inicial, mostrando todos los vehiculos y botones'''
@@ -18,14 +20,14 @@ class Gui():
 
     def iniciar_gui(self):
         self.ventana_principal = tkinter.Tk()
-        self.ventana_principal.title("Taller Mecanico")
+        self.ventana_principal.title("Taller Mecanico 'Clinica del Automotor'")
 
         # Interfaz
-        botonAgregarVehiculo = tkinter.Button(self.ventana_principal,text="Agregar vehiculo", 
+        botonAgregarVehiculo = tkinter.Button(self.ventana_principal,text="Agregar vehiculo", bg="green",
                            command = self.agregar_vehiculo).grid(row=0, column=0)
-        botonModificarVehiculoPatente=tkinter.Button(self.ventana_principal,text="Modificar Vehiculo",
+        botonModificarVehiculoPatente=tkinter.Button(self.ventana_principal,text="Modificar Vehiculo", cursor="pencil",
                            command = self.modificar_vehiculo).grid(row=0, column=1)
-        botonEliminarVehiculo=tkinter.Button(self.ventana_principal, text = "Eliminar Vehiculo",
+        botonEliminarVehiculo=tkinter.Button(self.ventana_principal, text = "Eliminar Vehiculo", bg="#ff0000",
                            command = self.eliminar_vehiculo).grid(row=0, column=2)
 
         tkinter.Label(self.ventana_principal,text="Buscar").grid(row=1,column=0)
@@ -54,7 +56,7 @@ class Gui():
         # Aca pone los vehiculos en pantalla
         self.poblar_tabla()
 
-        botonSalir = tkinter.Button(self.ventana_principal, text = "Salir",
+        botonSalir = tkinter.Button(self.ventana_principal, text = "Salir", relief="solid",
                 command = self.salir).grid(row=11,column=1)
 
         self.cajaBuscar.focus()
@@ -117,22 +119,21 @@ class Gui():
         self.modalAgregar.destroy()
         item = self.treeview.insert("", tkinter.END, text=vehiculo.patente,
                                         values=(vehiculo.tipo, vehiculo.marca, vehiculo.modelo, vehiculo.nombre, vehiculo.apellido, vehiculo.dni, vehiculo.cant_puertas_traccion))
-        #print(self.treeview.set(item))
+        print(self.treeview.set(item))
 
     def modificar_vehiculo(self):
         if not self.treeview.selection():
             messagebox.showwarning("Sin selección",
                     "Seleccione primero el vehiculo a modificar")
             return False
-        #id = int(self.treeview.selection()[0][1:])
         item = self.treeview.selection()        
         patente = self.treeview.item(item)['text']
-        #id = self.treeview.item(item, option="text")
 
-        #Para probar:
-        print(patente)
 
         vehiculo = self.tallerMecanico.buscar_por_patente(patente)
+        #En consola, al clickear en 'Modificar vehiculo' lo busca por el atributo patente
+        
+        #El siguiente listado muestra la pantalla que se abre al clickear "Modificar vehiculo"
         self.modalModificar = tkinter.Toplevel(self.ventana_principal)
         self.modalModificar.grab_set()
         tkinter.Label(self.modalModificar, text = "Tipo: ").pack()
@@ -140,10 +141,6 @@ class Gui():
         self.tipo.insert(0,vehiculo.tipo)
         self.tipo.pack()
         self.tipo.focus()
-        # tkinter.Label(self.modalModificar, text = "Patente: ").pack()
-        # self.patente = tkinter.Entry(self.modalModificar)
-        # self.patente.insert(0,vehiculo.patente)
-        # self.patente.pack()
         tkinter.Label(self.modalModificar, text = "Marca: ").pack()
         self.marca = tkinter.Entry(self.modalModificar)
         self.marca.insert(0,vehiculo.marca)
@@ -181,11 +178,7 @@ class Gui():
         item = self.treeview.selection()        
         patente = self.treeview.item(item)['text']
         print("Modificado el vehiculo ", patente)
-        #id = int(self.treeview.selection()[0][1:])
-        #idtree = self.treeview.selection()[0]
         self.tallerMecanico.modificar_todo_gui(patente, self.tipo.get(), self.marca.get(), self.modelo.get(), self.nombre.get(), self.apellido.get(), self.dni.get(), self.cant_puertas_traccion.get())
-       # self.treeview.set(self.treeview.selection()[0], column="patente",
-              #            value = self.patente.get())
         self.treeview.set(self.treeview.selection()[0], column="tipo",
                           value = self.tipo.get())
         self.treeview.set(self.treeview.selection()[0], column="marca",
