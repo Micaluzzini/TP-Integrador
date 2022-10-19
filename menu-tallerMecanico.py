@@ -60,10 +60,10 @@ class Menu:
         apellido = input("Ingrese el apellido de propietario del vehiculo: ")
         dni = input("Ingrese el DNI del propietario del vehiculo: ")
 
-        if tipo == 'A':
+        if tipo == 'A' or tipo =='a':
             cant_puertas_tipo_traccion = int(input("Ingrese la cantidad de puertas del auto: "))
             
-        elif tipo == 'C':
+        elif tipo == 'C' or tipo =='c':
             cant_puertas_tipo_traccion = int(input("Ingrese '2' si la tracción de la camioneta es 2x2 o '4' si es 4x4: "))
               
         # Esta asignacion es porque agregar_vehiculo retorna un objeto, pero aca no sirve para nada
