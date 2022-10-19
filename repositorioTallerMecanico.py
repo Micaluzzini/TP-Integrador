@@ -38,5 +38,4 @@ class RepositorioTallerMecanico:
             t = Camioneta(tallerMecanico_como_lista[0], tallerMecanico_como_lista[1],tallerMecanico_como_lista[2], tallerMecanico_como_lista[3],tallerMecanico_como_lista[4], tallerMecanico_como_lista[5],tallerMecanico_como_lista[6], tallerMecanico_como_lista[7])
         fecha = tallerMecanico_como_lista[8].split('-')
         t.fecha_creacion = datetime.date(int(fecha[0]),int(fecha[1]),int(fecha[2]))
-        # print(vars(t))
         return t
