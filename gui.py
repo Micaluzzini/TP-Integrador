@@ -129,7 +129,9 @@ class Gui():
     def contar_vehiculo(self):
         self.modalAgregar = tkinter.Toplevel(self.ventana_principal)
         self.modalAgregar.grab_set()
-        tkinter.Label(self.modalAgregar, text = "Ingrese tipo de vehiculo (Auto o Camioneta) [A/C]: ").grid()
+        tkinter.Label(self.modalAgregar, text = "Ingrese tipo de vehiculo (Auto o Camioneta) [A/C]: ",).grid()
+        '''botonSeleccion = self.radio1=tk.Radiobutton(self.ventana_principal,text="Auto", variable=self.modalAgregar, value=1)
+        self.radio1.grid(column=0, row=0)'''
         self.tipo = tkinter.Entry(self.modalAgregar)
         self.tipo.grid(row=0,column=1,columnspan=2)
         self.tipo.focus()
