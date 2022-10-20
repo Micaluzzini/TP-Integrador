@@ -77,7 +77,7 @@ class Gui():
         #Vaciamos el Treeview, si tuviera algún item:
         for i in self.treeview.get_children():
             self.treeview.delete(i)
-        #Si no recibimos la lista de notas, le asignamos todas las notas:
+        #Si no recibimos la lista de los vehiculos, le asignamos todos los vehiculos:
         if not vehiculos:
             vehiculos = self.tallerMecanico.lista_vehiculos
         #Poblamos el treeview:
@@ -254,10 +254,10 @@ class Gui():
                                 "Ningun vehiculo coincide con la búsqueda")
 
     def buscar_patente(self):
-        filtro = self.cajaBuscarPatente.get()
-        vehiculos = self.tallerMecanico.buscar_por_patente(filtro)
-        if vehiculos:
-            self.poblar_tabla(vehiculos)
+        busqueda = self.cajaBuscarPatente.get()
+        veh = self.tallerMecanico.buscar_por_patente(busqueda)
+        if veh:
+            self.poblar_tabla(veh)
         else:
             messagebox.showwarning("Sin resultados",
                                 "Ninguna patente coincide con la búsqueda")
