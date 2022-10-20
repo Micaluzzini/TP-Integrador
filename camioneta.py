@@ -26,11 +26,12 @@ class Camioneta:
         
         return texto  
       
-      def buscar_por_patente(self, texto_a_buscar):
+      #ESTO NO VA
+      '''def buscar_por_patente(self, texto_a_buscar):
         if texto_a_buscar.upper() in self.nombre.upper() or texto_a_buscar.upper() in self.apellido.upper():
             return True
         else:
-            return False
+            return False'''
           
       def coincide(self, texto_a_buscar):
         if texto_a_buscar.upper() in self.nombre.upper() or texto_a_buscar.upper() in self.apellido.upper():

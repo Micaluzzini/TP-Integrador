@@ -74,17 +74,18 @@ class Gui():
 
       
     def poblar_tabla(self, vehiculos = None):
-        #Vaciamos el Treeview, si tuviera algún item:
+        #Vacia el treeview
         for i in self.treeview.get_children():
             self.treeview.delete(i)
-        #Si no recibimos la lista de los vehiculos, le asignamos todos los vehiculos:
+        #Si no se recibe la lista de los vehiculos, a 'vehiculos' se le asignan todos los vehiculos:
         if not vehiculos:
             vehiculos = self.tallerMecanico.lista_vehiculos
-        #Poblamos el treeview:
+        #Se llena el treeview:
         for v in vehiculos:
             item = self.treeview.insert("", tkinter.END, text=v.patente,
                               values=(v.tipo, v.marca, v.modelo, v.nombre, v.apellido, v.dni, v.cant_puertas_traccion), iid=v.patente)
-        
+     
+     #Se agrega un nuevo vehiculo con sus atributos   
     def agregar_vehiculo(self):
         self.modalAgregar = tkinter.Toplevel(self.ventana_principal)
         #top.transient(parent)
@@ -123,7 +124,8 @@ class Gui():
         botonCancelar = tkinter.Button(self.modalAgregar, text = "Cancelar",
                 command = self.modalAgregar.destroy)
         botonCancelar.grid(row=8,column=2)
-
+        
+    #Cuenta la cantidad de vehiculos que ingresaron al taller distinguidos si son Autos o Camioneta
     def contar_vehiculo(self):
         self.modalAgregar = tkinter.Toplevel(self.ventana_principal)
         self.modalAgregar.grab_set()
@@ -140,14 +142,15 @@ class Gui():
         botonCancelar.grid(row=8,column=2)
         botonResultado = tkinter.Button(self.modalAgregar, text = self.contar_ok,
                         command=self.contar_ok)
-
+        
+    #Funcion llamada por contar_vehiculo 
     def contar_ok(self):
         resultado = self.tallerMecanico.contar_veh(self.tipo.get())
         tkinter.Label(self.modalAgregar, text = resultado).grid()
         
-        print (resultado)
+        #print (resultado)
         
-
+    #Agregar un nuevo vehiculo
     def agregar_ok(self, event=None):
         vehiculo = self.tallerMecanico.agregar_vehiculo(self.tipo.get(), self.patente.get(),self.marca.get(), self.modelo.get(),self.nombre.get(), self.apellido.get(),self.dni.get(), self.cant_puertas_traccion.get())
         self.modalAgregar.destroy()
@@ -155,6 +158,7 @@ class Gui():
                                         values=(vehiculo.tipo, vehiculo.marca, vehiculo.modelo, vehiculo.nombre, vehiculo.apellido, vehiculo.dni, vehiculo.cant_puertas_traccion))
         print(self.treeview.set(item))
 
+    #Boton de Modificar Vehiculo
     def modificar_vehiculo(self):
         if not self.treeview.selection():
             messagebox.showwarning("Sin selección",
@@ -163,9 +167,9 @@ class Gui():
         item = self.treeview.selection()        
         patente = self.treeview.item(item)['text']
 
-
-        vehiculo = self.tallerMecanico.buscar_por_patente(patente)
         #En consola, al clickear en 'Modificar vehiculo' lo busca por el atributo patente
+        vehiculo = self.tallerMecanico.buscar_por_patente(patente)
+        
         
         #El siguiente listado muestra la pantalla que se abre al clickear "Modificar vehiculo"
         self.modalModificar = tkinter.Toplevel(self.ventana_principal)
@@ -257,7 +261,7 @@ class Gui():
         busqueda = self.cajaBuscarPatente.get()
         veh = self.tallerMecanico.buscar_por_patente(busqueda)
         if veh:
-            self.poblar_tabla(veh)
+            self.poblar_tabla([veh])
         else:
             messagebox.showwarning("Sin resultados",
                                 "Ninguna patente coincide con la búsqueda")
