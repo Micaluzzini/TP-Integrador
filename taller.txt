@@ -1,2 +1,3 @@
-A,IOG345,2015,Peugeot,Mercedes,Sosa,11345829,4,2022-10-18
-A,AA58400,1845,Tesla,Reina,Isabel,4,2,2022-10-18
+A,IOG345,Peugeot,2015,Mercedes,Sosa,11345829,4,2022-10-18
+A,AA58400,Tesla,1845,Reina,Isabel,4,2,2022-10-18
+Camioneta,FGH654,2028,Volkswagen,Mirtha,Legrand,13,,2022-10-21
