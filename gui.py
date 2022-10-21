@@ -130,14 +130,13 @@ class Gui():
         self.modalAgregar = tkinter.Toplevel(self.ventana_principal)
         self.modalAgregar.grab_set()
         tkinter.Label(self.modalAgregar, text = "Ingrese tipo de vehiculo (Auto o Camioneta) [A/C]: ",).grid()
-        '''botonSeleccion = self.radio1=tk.Radiobutton(self.ventana_principal,text="Auto", variable=self.modalAgregar, value=1)
-        self.radio1.grid(column=0, row=0)'''
+        botonSeleccion = self.ModalAgregar=tk.Radiobutton(self.modalAgregar,text="Auto", variable=self.modalAgregar, value=1)
         self.tipo = tkinter.Entry(self.modalAgregar)
         self.tipo.grid(row=0,column=1,columnspan=2)
         self.tipo.focus()
         botonOK = tkinter.Button(self.modalAgregar, text="Contar",
                 command=self.contar_ok)
-        self.modalAgregar.bind("<Return>", self.contar_ok)
+        self.modalAgregar.bind("<Return>",  self.contar_ok)
         botonOK.grid(row=8)
         botonCancelar = tkinter.Button(self.modalAgregar, text = "Cancelar",
                 command = self.modalAgregar.destroy)
@@ -249,7 +248,7 @@ class Gui():
                 self.tallerMecanico.eliminar_vehiculo(patente)
             else:
                 return False
-
+    #Busca vehicuo por nombre o apellido ingresado parcial
     def buscar_vehiculo(self):
         filtro = self.cajaBuscar.get()
         vehiculos = self.tallerMecanico.buscar_por_nombre_apellido(filtro)
@@ -259,6 +258,7 @@ class Gui():
             messagebox.showwarning("Sin resultados",
                                 "Ningun vehiculo coincide con la búsqueda")
 
+    #Busca por patente completa
     def buscar_patente(self):
         busqueda = self.cajaBuscarPatente.get()
         veh = self.tallerMecanico.buscar_por_patente(busqueda)
